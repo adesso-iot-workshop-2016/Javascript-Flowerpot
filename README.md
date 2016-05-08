@@ -2,6 +2,11 @@
 
 Javascript based application, that communicates with the wonderbar through mqtt
 
+The app currently runs in simulation mode and the bootstrap stylesheet is
+missing. The bootstrap installation will be automated, as I don't want to
+provide third party libraries in this repository. The code is not mine to
+distribute and it should not be duplicated.
+
 > A Vue.js project
 
 ## Build Setup
