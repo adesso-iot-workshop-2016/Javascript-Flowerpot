@@ -1,4 +1,6 @@
-# weather-app
+# Javascript-Flowerpot
+
+Javascript based application, that communicates with the wonderbar through mqtt
 
 > A Vue.js project
 
