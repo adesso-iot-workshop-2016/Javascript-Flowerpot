@@ -18,3 +18,5 @@ window.setInterval(function() {
 export default {
   data: data
 };
+
+import './Wunderbar.js'

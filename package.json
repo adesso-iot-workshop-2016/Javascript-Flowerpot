@@ -7,8 +7,9 @@
     "watchify": "watchify -vd -p browserify-hmr -e src/main.js -o dist/build.js",
     "serve": "http-server -c 1 -a localhost -p 9000",
     "dev": "npm-run-all --parallel watchify serve",
-    "build": "browserify -e src/main.js | uglifyjs -c warnings=false -m > dist/build.js",
-    "lint": "eslint --ext .js,.vue src test/unit"
+    "build": "browserify -e src/main.js | uglifyjs -c warnings=false -m > dist/build.js && npm run copy-css",
+    "lint": "eslint --ext .js,.vue src test/unit",
+    "copy-css": "copyfiles -f node_modules/bootstrap/dist/css/bootstrap.min.css assets/vendor"
   },
   "browserify": {
     "transform": [
@@ -17,9 +18,13 @@
     ]
   },
   "dependencies": {
+    "bootstrap": "^3.3.6",
     "chart.js": "^1.0.2",
+    "copyfiles": "^0.2.1",
+    "mqtt": "^1.10.0",
     "stylus": "^0.54.2",
-    "vue": "^1.0.0"
+    "vue": "^1.0.0",
+    "vue-resource": "^0.7.0"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",

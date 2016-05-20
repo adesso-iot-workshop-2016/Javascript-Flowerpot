@@ -40,6 +40,14 @@ export default {
     light: function () {
       return Config.datastores.Light[Config.datastores.Light.length - 1];
     }
+  },
+  ready: function() {
+    this.$http.get('https://api.relayr.io/devices/f8999951-db21-4245-a24c-900dc5939e92/readings').then(function (response) {
+      console.log('it works');
+      console.log(response);
+    }, function (response) {
+      console.log('error occured');
+    });
   }
 }
 </script>
