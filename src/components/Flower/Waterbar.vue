@@ -6,7 +6,7 @@
 
         <rect x="29.1" y="108" height="0.8" width="3.8" style="fill: red;"></rect>
 
-        <rect x="29" y="{{ 87 + 27 - waterLevel }}" rx="1" ry="1" height="{{ waterLevel }}" width="4" style="fill: blue;"></rect>
+        <rect x="29" y="0" :y="87 + 27 - waterLevel" rx="1" ry="1" height="0" :height="waterLevel" width="4" style="fill: blue;"></rect>
     </svg>
 </template>
 

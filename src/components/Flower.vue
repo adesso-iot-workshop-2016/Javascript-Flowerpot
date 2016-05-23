@@ -5,7 +5,7 @@
       viewBox="0 0 150 150">
       <svg>
         <rect x="8" y="6" height="136" width="134" style="fill:#111"></rect>
-        <svg style="opacity: {{ light }}">
+        <svg :style="{ opacity: light }">
           <rect x="8" y="6" height="136" width="134" style="fill:lightblue"></rect>
           <rect x="8" y="115" height="20" width="134" style="fill:green"></rect>
           <path d="M 6 116 q 65 -30 136 0" style="fill:green"></path>

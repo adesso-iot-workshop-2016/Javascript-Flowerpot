@@ -1,5 +1,5 @@
 <template>
-    <circle cx="{{ x }}" cy="{{ y }}" r="{{ r }}" :style="{fill:bg}" class="petal">
+    <circle cx="0" :cx="x" cy="0" :cy="y" r="0" :cr="r" :style="{fill:bg}" class="petal">
         <animate
             attributeName="r"
             begin="0s"
@@ -53,6 +53,10 @@ export default {
         y: null,
         r: null,
         bg: 'green'
+    },
+
+    ready: function() {
+
     }
 }
 </script>

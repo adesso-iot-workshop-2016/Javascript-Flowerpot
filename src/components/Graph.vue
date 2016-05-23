@@ -14,8 +14,10 @@ export default {
   props: {
     labels: [],
     values: {},
-    width: 600,
-    height: 300,
+    width: {},
+    height: {},
+    scaleSteps: {default: 5},
+    scaleStepSize: {default: 0.2}
   },
 
   computed: {
@@ -43,8 +45,8 @@ export default {
     var options = {
       animation: false,
       scaleOverride : true,
-      scaleSteps : 5,
-      scaleStepWidth : 0.2,
+      scaleSteps : this.scaleSteps,
+      scaleStepWidth : this.scaleStepSize,
       scaleStartValue : 0
     };
 

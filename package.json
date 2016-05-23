@@ -7,9 +7,11 @@
     "watchify": "watchify -vd -p browserify-hmr -e src/main.js -o dist/build.js",
     "serve": "http-server -c 1 -a localhost -p 9000",
     "dev": "npm-run-all --parallel watchify serve",
-    "build": "browserify -e src/main.js | uglifyjs -c warnings=false -m > dist/build.js && npm run copy-css",
+    "build": "browserify -e src/main.js | uglifyjs -c warnings=false -m > dist/build.js && npm run copy-bootstrap",
     "lint": "eslint --ext .js,.vue src test/unit",
-    "copy-css": "copyfiles -f node_modules/bootstrap/dist/css/bootstrap.min.css assets/vendor"
+    "copy-css": "copyfiles -f node_modules/bootstrap/dist/css/bootstrap.min.css node_modules/bootstrap/dist/css/bootstrap.min.css.map assets/css",
+    "copy-fonts": "copyfiles -f node_modules/bootstrap/dist/fonts/* assets/fonts",
+    "copy-bootstrap": "npm run copy-css && npm run copy-fonts"
   },
   "browserify": {
     "transform": [
@@ -21,6 +23,7 @@
     "bootstrap": "^3.3.6",
     "chart.js": "^1.0.2",
     "copyfiles": "^0.2.1",
+    "moment": "^2.13.0",
     "mqtt": "^1.10.0",
     "stylus": "^0.54.2",
     "vue": "^1.0.0",

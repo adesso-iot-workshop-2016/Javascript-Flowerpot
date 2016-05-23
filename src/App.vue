@@ -2,13 +2,14 @@
   <div id="app">
     <center>
         <flower :light="light" :water="water"></flower>
-        <toggle-box title="debug" color="red" dropdown-disabled v-show="config.debug">
+        <!-- <toggle-box title="debug" color="red" dropdown-disabled v-show="config.debug">
             <label style="width: 60px; text-align: right; padding-right: 5px">Licht:</label><input v-model="light" type="number" min="0" max="1" step="0.05"></input><br />
             <label style="width: 60px; text-align: right; padding-right: 5px">Wasser:</label><input v-model="water" type="number" min="0" max="1" step="0.05"></input>
-        </toggle-box>
+        </toggle-box> -->
 
-        <data-box :datastore="waterData" dropdown-disabled color="blue" title="Feuchtigkeit"></data-box>
-        <data-box :datastore="waterData" dropdown-disabled color="gold" title="Lichteinstrahlung"></data-box>
+        <data-box :datastore="datastores.Water" color="blue" title="Feuchtigkeit"></data-box>
+        <data-box :datastore="datastores.Light" color="gold" title="Lichteinstrahlung"></data-box>
+        <data-box :datastore="datastores.Temperature" color="red" title="Lichteinstrahlung" scale-step-size="8" scale-steps="5"></data-box>
     </center>
   </div>
 </template>
@@ -28,27 +29,18 @@ export default {
   data() {
     return {
       light: 0,
-      waterData: Config.datastores.Water,
-      lightData: Config.datastores.Light,
+      datastores: Config.datastores,
       config: Config,
     }
   },
   computed: {
     water: function () {
-      return Config.datastores.Water[Config.datastores.Water.length - 1];
+      return this.datastores.Water.currentValue;
     },
     light: function () {
-      return Config.datastores.Light[Config.datastores.Light.length - 1];
+      return this.datastores.Light.currentValue;
     }
   },
-  ready: function() {
-    this.$http.get('https://api.relayr.io/devices/f8999951-db21-4245-a24c-900dc5939e92/readings').then(function (response) {
-      console.log('it works');
-      console.log(response);
-    }, function (response) {
-      console.log('error occured');
-    });
-  }
 }
 </script>
 
