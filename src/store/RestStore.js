@@ -2,7 +2,7 @@ import Vue from 'vue'
 var moment = require('moment');
 
 Vue.use(require('vue-resource'))
-Vue.http.headers.common['Authorization'] = ""
+Vue.http.headers.common['Authorization'] = "Bearer LqN9iRoCxgQLHAHlV.XEXK2KrdCwKYjI"
 
 console.log(Vue)
 class RestStore {
