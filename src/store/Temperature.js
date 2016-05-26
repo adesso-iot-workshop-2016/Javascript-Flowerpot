@@ -2,7 +2,7 @@ import {RestStore} from './RestStore.js';
 
 class Temperature extends RestStore {
 	constructor() {
-		super('299d33dc-01d7-4b8d-8e48-89204d135075', 'temperature', 1);
+		super('ede55c22-6d9d-44ce-b1a5-3c58f03c788c', 'temperature', 1);
 	}
 }
 
